@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananyamlives | Admin Control Panel</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="images/manchatti.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-auth-pending">
+
+    <div class="admin-login-gate" id="adminLoginGate" hidden>
+        <form class="admin-login-card" id="adminLoginForm">
+            <h1>Admin Login</h1>
+            <p>Sign in with an administrator account to continue.</p>
+            <label for="adminLoginEmail">Email</label>
+            <input class="form-control" id="adminLoginEmail" type="email" required autocomplete="username">
+            <label for="adminLoginPassword">Password</label>
+            <div class="password-field">
+                <input class="form-control" id="adminLoginPassword" type="password" required>
+                <button type="button" class="password-toggle" data-password-target="adminLoginPassword" aria-label="Show password" aria-pressed="false">&#128065;</button>
+            </div>
+            <div class="admin-login-error" id="adminLoginError" role="alert"></div>
+            <button class="btn-primary" type="submit">Login to Admin Panel</button>
+            <a href="index.html">Back to storefront</a>
+        </form>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+        <div class="brand-header">
+            <img src="main.jpeg" alt="Ananyamlives" class="brand-logo">
+            <div>
+                <div class="brand-title">ANANYAMLIVES</div>
+                <div class="brand-sub">Admin Control Panel</div>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a class="nav-item active" data-tab="dashboard">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                <span>Dashboard</span>
+            </a>
+            <a class="nav-item" data-tab="orders">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 9a4 4 0 0 1-8 0"/></svg>
+                <span>Orders</span>
+            </a>
+            <a class="nav-item" data-tab="analytics">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 4-6"/></svg>
+                <span>Customer Analytics</span>
+            </a>
+            <a class="nav-item" data-tab="products">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                <span>Products</span>
+            </a>
+            <a class="nav-item" data-tab="users">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>Users</span>
+            </a>
+            <a class="nav-item" data-tab="content">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+                <span>Site Content</span>
+            </a>
+            <a class="nav-item" data-tab="settings">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>System Health</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="avatar-icon" id="userInitial">A</div>
+                <div>
+                    <div style="font-weight:600; font-size:0.85rem;" id="adminUserName">Admin</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted);" id="adminUserEmail">admin@ananyamlives.com</div>
+                </div>
+                <button class="logout-btn" id="logoutBtn" title="Logout">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+
+        <!-- Top Header -->
+        <div class="top-bar">
+            <div class="page-title">
+                <h1 id="currentTabTitle">Dashboard Overview</h1>
+                <p id="currentTabSub">Live monitor of store performance, sales, orders and inventory.</p>
+            </div>
+            <div>
+                <a href="index.html" class="btn-primary" style="text-decoration:none;" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Visit Storefront
+                </a>
+            </div>
+        </div>
+
+        <!-- 1. DASHBOARD OVERVIEW TAB -->
+        <section class="panel-section active" id="tab-dashboard">
+            <div class="card-panel dashboard-date-filter">
+                <div>
+                    <h2>Dashboard Date Range</h2>
+                    <p>View dashboard visits, orders and revenue for a selected period.</p>
+                </div>
+                <div class="date-filter-controls">
+                    <label>From <input type="date" id="dashboardDateFrom" class="form-control"></label>
+                    <label>To <input type="date" id="dashboardDateTo" class="form-control"></label>
+                    <button type="button" class="btn-primary btn-sm" id="clearDashboardDates">All time</button>
+                </div>
+            </div>
+            <!-- Stats Cards Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-label">Total Revenue</div>
+                        <div class="stat-val" id="statRevenue">₹0</div>
+                    </div>
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-label">Total Orders</div>
+                        <div class="stat-val" id="statOrders">0</div>
+                    </div>
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-label">Pending Orders</div>
+                        <div class="stat-val" id="statPending" style="color:var(--badge-pending);">0</div>
+                    </div>
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-label">Active Products</div>
+                        <div class="stat-val" id="statProducts">0</div>
+                    </div>
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders Card -->
+            <div class="card-panel">
+                <div class="panel-header">
+                    <h2>Recent Customer Orders</h2>
+                    <button class="btn-primary btn-sm" onclick="switchToTab('orders')">View All Orders</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersBody">
+                            <tr><td colspan="7" style="text-align:center;">Loading recent orders...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ORDERS MANAGEMENT TAB -->
+        <section class="panel-section" id="tab-orders">
+            <div class="card-panel">
+                <div class="panel-header">
+                    <h2>Order Control & Status Tracking</h2>
+                    <div style="display:flex; gap:.5rem; flex-wrap:wrap; justify-content:flex-end;">
+                        <input type="date" id="orderDateFrom" class="form-control" aria-label="Orders from date">
+                        <input type="date" id="orderDateTo" class="form-control" aria-label="Orders to date">
+                        <input type="text" id="orderSearch" class="form-control" style="width:250px;" placeholder="Search Order ID, Customer, Phone...">
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Customer & Phone</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Payment</th>
+                                <th>Status</th>
+                                <th>Tracking Code</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="allOrdersBody">
+                            <tr><td colspan="9" style="text-align:center;">Loading orders database...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CUSTOMER ANALYTICS TAB -->
+        <section class="panel-section" id="tab-analytics">
+            <div class="stats-grid analytics-stats-grid">
+                <div class="stat-card"><div><div class="stat-label">Total Activity Events</div><div class="stat-val" id="analyticsTotalEvents">0</div></div></div>
+                <div class="stat-card"><div><div class="stat-label">Page Visits</div><div class="stat-val" id="analyticsPageViews">0</div></div></div>
+                <div class="stat-card"><div><div class="stat-label">Unique Visitors</div><div class="stat-val" id="analyticsUniqueVisitors">0</div></div></div>
+                <div class="stat-card"><div><div class="stat-label">Identified Customers</div><div class="stat-val" id="analyticsCustomers">0</div></div></div>
+            </div>
+            <div class="card-panel">
+                <div class="panel-header"><div><h2>Most Viewed / Wishlist / Cart Products</h2><p class="analytics-help">Customer interest signals across the full storefront.</p></div><div style="display:flex;gap:.5rem;flex-wrap:wrap;"><input type="date" id="analyticsDateFrom" class="form-control"><input type="date" id="analyticsDateTo" class="form-control"><button class="btn-primary btn-sm" type="button" onclick="loadAnalytics()">Refresh</button></div></div>
+                <div class="table-responsive"><table class="admin-table"><thead><tr><th>Product</th><th>Product Views</th><th>Wishlist Actions</th><th>Cart Actions</th><th>Place Orders</th></tr></thead><tbody id="analyticsProductsBody"><tr><td colspan="5">Loading customer analytics...</td></tr></tbody></table></div>
+            </div>
+            <div class="card-panel">
+                <div class="panel-header"><h2>Customer-wise Website Activity</h2></div>
+                <div class="table-responsive"><table class="admin-table"><thead><tr><th>Customer</th><th>Events</th><th>Page Visits</th><th>Product Views</th><th>Wishlist Adds</th><th>Cart Actions</th><th>Place Orders</th><th>IP Address</th><th>Browser</th><th>Device</th><th>Source</th><th>Last Seen</th><th>History</th></tr></thead><tbody id="analyticsCustomersBody"><tr><td colspan="13">Loading customer activity...</td></tr></tbody></table></div>
+            </div>
+            <div class="card-panel">
+                <div class="panel-header"><h2>Blocked Users & IP Addresses</h2></div>
+                <div class="table-responsive"><table class="admin-table"><thead><tr><th>Type</th><th>Blocked Value</th><th>Blocked On</th><th>Action</th></tr></thead><tbody id="analyticsBlocksBody"><tr><td colspan="4">No blocked users or IP addresses.</td></tr></tbody></table></div>
+            </div>
+        </section>
+
+        <!-- 4. PRODUCTS INVENTORY TAB -->
+        <section class="panel-section" id="tab-products">
+            <div class="card-panel">
+                <div class="panel-header">
+                    <h2>Product Inventory Management</h2>
+                    <button class="btn-primary" onclick="openAddProductModal()">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Add New Cookware Product
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product Title</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status / Visibility</th>
+                                <th>Rating</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsBody">
+                            <tr><td colspan="8" style="text-align:center;">Loading cookware products...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. USERS MANAGEMENT TAB -->
+        <section class="panel-section" id="tab-users">
+            <div class="card-panel">
+                <div class="panel-header">
+                    <h2>Registered Customer Accounts & Roles</h2>
+                    <button class="btn-primary" type="button" onclick="downloadUsersExcel()">Download Excel</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Customer Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersBody">
+                            <tr><td colspan="7" style="text-align:center;">Loading user accounts...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SITE CONTENT MANAGEMENT TAB -->
+        <section class="panel-section" id="tab-content">
+            <div class="card-panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Website Content Editor</h2>
+                        <p style="color:var(--text-muted); margin-top:0.35rem;">Edit visible text and blog content without changing code.</p>
+                    </div>
+                    <button class="btn-primary" type="button" onclick="saveSiteContent()">Save All Content</button>
+                </div>
+                <form id="siteContentForm" class="content-editor-grid">
+                    <div class="content-editor-group"><h3>Header & Contact</h3>
+                        <label>Announcement<input class="form-control" data-content-key="announcementLeft"></label>
+                        <label>Announcement highlight<input class="form-control" data-content-key="announcementMiddle"></label>
+                        <label>Brand subtitle<input class="form-control" data-content-key="brandSubtitle"></label>
+                        <label>Phone<input class="form-control" data-content-key="phone"></label>
+                        <label>Email<input class="form-control" data-content-key="email"></label>
+                        <label>Address<input class="form-control" data-content-key="address"></label>
+                    </div>
+                    <div class="content-editor-group"><h3>Colour Palette</h3>
+                        <p style="color:var(--text-muted); font-size:0.8rem; margin-bottom:1rem;">Choose colors for the storefront theme.</p>
+                        <label>Primary<input class="palette-picker" type="color" data-content-key="palettePrimary"></label>
+                        <label>Secondary<input class="palette-picker" type="color" data-content-key="paletteSecondary"></label>
+                        <label>Terracotta<input class="palette-picker" type="color" data-content-key="paletteTerracotta"></label>
+                        <label>Accent / Buttons<input class="palette-picker" type="color" data-content-key="paletteAccent"></label>
+                        <label>Page background<input class="palette-picker" type="color" data-content-key="paletteBackground"></label>
+                        <label>Card background<input class="palette-picker" type="color" data-content-key="paletteCard"></label>
+                        <label>Main text<input class="palette-picker" type="color" data-content-key="paletteText"></label>
+                        <label>Natural green<input class="palette-picker" type="color" data-content-key="paletteNatural"></label>
+                    </div>
+                    <div class="content-editor-group"><h3>Homepage Hero & Collection</h3>
+                        <label>Hero title<textarea class="form-control" rows="3" data-content-key="heroTitle"></textarea></label>
+                        <label>Hero description<textarea class="form-control" rows="3" data-content-key="heroDescription"></textarea></label>
+                        <label>Hero image URL<input class="form-control" data-content-key="heroImage"></label>
+                        <label>Upload hero image<input class="form-control" type="file" id="heroImageFile" accept="image/*"><small>Upload replaces the URL after saving.</small></label>
+                        <label>Hero button<input class="form-control" data-content-key="heroCta"></label>
+                        <label>Collection title<input class="form-control" data-content-key="collectionTitle"></label>
+                        <label>Collection subtitle<textarea class="form-control" rows="2" data-content-key="collectionSubtitle"></textarea></label>
+                    </div>
+                    <div class="content-editor-group"><h3>Our Story</h3>
+                        <label>Section label<input class="form-control" data-content-key="storyKicker"></label>
+                        <label>Title<input class="form-control" data-content-key="storyTitle"></label>
+                        <label>Introduction<textarea class="form-control" rows="3" data-content-key="storyIntro"></textarea></label>
+                        <label>Card 1 title<input class="form-control" data-content-key="storyCard1Title"></label><label>Card 1 text<textarea class="form-control" rows="2" data-content-key="storyCard1Body"></textarea></label>
+                        <label>Card 2 title<input class="form-control" data-content-key="storyCard2Title"></label><label>Card 2 text<textarea class="form-control" rows="2" data-content-key="storyCard2Body"></textarea></label>
+                        <label>Card 3 title<input class="form-control" data-content-key="storyCard3Title"></label><label>Card 3 text<textarea class="form-control" rows="2" data-content-key="storyCard3Body"></textarea></label>
+                        <label>Card 4 title<input class="form-control" data-content-key="storyCard4Title"></label><label>Card 4 text<textarea class="form-control" rows="2" data-content-key="storyCard4Body"></textarea></label>
+                        <label>Closing quote<textarea class="form-control" rows="2" data-content-key="storyClosing"></textarea></label>
+                        <label>Closing subtitle<input class="form-control" data-content-key="storyClosingSubtext"></label>
+                    </div>
+                    <div class="content-editor-group"><h3>Care Guide & Footer</h3>
+                        <label>Care label<input class="form-control" data-content-key="careKicker"></label>
+                        <label>Care title<input class="form-control" data-content-key="careTitle"></label>
+                        <label>Care text<textarea class="form-control" rows="3" data-content-key="careBody"></textarea></label>
+                        <label>Footer description<textarea class="form-control" rows="3" data-content-key="footerAbout"></textarea></label>
+                    </div>
+                    <div class="content-editor-group"><h3>Blog</h3>
+                        <label>Blog label<input class="form-control" data-content-key="blogKicker"></label><label>Blog title<input class="form-control" data-content-key="blogTitle"></label><label>Blog introduction<textarea class="form-control" rows="2" data-content-key="blogIntro"></textarea></label>
+                        <div id="blogArticlesEditor"></div>
+                        <button class="btn-primary" type="button" onclick="addBlogArticle()">+ Add More Article</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- 6. SYSTEM SETTINGS TAB -->
+        <section class="panel-section" id="tab-settings">
+            <div class="card-panel">
+                <div class="panel-header">
+                    <h2>System Status & Integration Health</h2>
+                </div>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
+                    <div style="background:#11141f; padding:1.25rem; border-radius:10px; border:1px solid var(--border-color);">
+                        <h3 style="color:var(--primary-brand); margin-bottom:0.5rem;">Database Engine</h3>
+                        <p id="dbHealthStatus" style="font-size:0.95rem; color:#e2e8f0;">Checking database...</p>
+                    </div>
+                    <div style="background:#11141f; padding:1.25rem; border-radius:10px; border:1px solid var(--border-color);">
+                        <h3 style="color:var(--primary-brand); margin-bottom:0.5rem;">Cloud Storage & Uploads</h3>
+                        <p style="font-size:0.95rem; color:#e2e8f0;">Multer Local Storage Enabled (/uploads)</p>
+                    </div>
+                    <div style="background:#11141f; padding:1.25rem; border-radius:10px; border:1px solid var(--border-color);">
+                        <h3 style="color:var(--primary-brand); margin-bottom:0.5rem;">Google Sheets & Drive Backup</h3>
+                        <p id="googleHealthStatus" style="font-size:0.95rem; color:#e2e8f0;">Checking Google sync status...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PRODUCT ADD/EDIT MODAL -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-box">
+            <h2 style="margin-bottom:1.25rem;" id="productModalTitle">Add New Product</h2>
+            <form id="productForm">
+                <input type="hidden" id="prodId">
+                <div class="form-group">
+                    <label>Product Title</label>
+                    <input type="text" id="prodTitle" class="form-control" required placeholder="e.g. Handmade Clay Fish Curry Manchatti">
+                </div>
+                <div class="form-group">
+                    <label>Subtitle / Highlight</label>
+                    <input type="text" id="prodSubtitle" class="form-control" placeholder="e.g. Authentic Eco-Friendly Clay Pot">
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="prodCategory" class="form-control">
+                            <option value="manchatti">Manchatti / Rice Pot</option>
+                            <option value="kadai">Clay Kadai</option>
+                            <option value="handi">Clay Handi & Biryani Pot</option>
+                            <option value="waterpot">Water Pot & Jug</option>
+                            <option value="serving">Serving Bowl & Tableware</option>
+                            <option value="cookware">Traditional Cookware</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Price (₹)</label>
+                        <input type="number" id="prodPrice" class="form-control" required placeholder="899">
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div class="form-group">
+                        <label>Original Price (₹)</label>
+                        <input type="number" id="prodOriginalPrice" class="form-control" placeholder="1299">
+                    </div>
+                    <div class="form-group">
+                        <label>Stock Count</label>
+                        <input type="number" id="prodStock" class="form-control" value="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Product Visibility (Public / Private)</label>
+                    <select id="prodVisibility" class="form-control">
+                        <option value="true">🟢 Public (Visible to Customers on Storefront)</option>
+                        <option value="false">🔒 Private (Hidden from Customers / Out of Stock)</option>
+                    </select>
+                    <small style="color:var(--text-muted); display:block; margin-top:4px;">Private products are completely hidden from the customer storefront and search results.</small>
+                </div>
+                <div class="form-group">
+                    <label>Image 1 (Primary Product Image)</label>
+                    <img id="prodImagePreview" src="images/manchatti.png" alt="Current primary product image" style="display:block; width:96px; height:96px; object-fit:cover; border-radius:8px; margin:0.5rem 0; border:1px solid var(--border-color);">
+                    <input type="file" id="prodImageFile" class="form-control" accept="image/*">
+                    <input type="text" id="prodImageUrl" class="form-control" style="margin-top:0.5rem;" placeholder="Paste Image 1 URL or upload above...">
+                </div>
+                <div class="form-group product-gallery-editor">
+                    <label>Additional Product Images</label>
+                    <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin:0.5rem 0 0.75rem;">
+                        <div><small>Image 2</small><img id="prodImage2Preview" src="" alt="Second product image preview" class="product-image-slot-preview"></div>
+                        <div><small>Image 3</small><img id="prodImage3Preview" src="" alt="Third product image preview" class="product-image-slot-preview"></div>
+                    </div>
+                    <label for="prodImage2File">Image 2 file</label>
+                    <input type="file" id="prodImage2File" class="form-control" accept="image/*">
+                    <label for="prodImage2Visibility">Image 2 visibility</label>
+                    <select id="prodImage2Visibility" class="form-control">
+                        <option value="public">Public (show on storefront)</option>
+                        <option value="private">Private (keep only in Admin)</option>
+                    </select>
+                    <label for="prodImage3File">Image 3 file</label>
+                    <input type="file" id="prodImage3File" class="form-control" accept="image/*">
+                    <label for="prodImage3Visibility">Image 3 visibility</label>
+                    <select id="prodImage3Visibility" class="form-control">
+                        <option value="public">Public (show on storefront)</option>
+                        <option value="private">Private (keep only in Admin)</option>
+                    </select>
+                    <input type="hidden" id="prodImage2Url">
+                    <input type="hidden" id="prodImage3Url">
+                    <small>Image 1 appears on the product card. All three images appear in Product Description.</small>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="prodDescription" class="form-control" rows="3" placeholder="Enter full product details..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Product Care</label>
+                    <textarea id="prodCare" class="form-control" rows="5" placeholder="Enter product care instructions..."></textarea>
+                </div>
+                <div style="display:flex; justify-content:flex-end; gap:1rem; margin-top:1.5rem;">
+                    <button type="button" class="btn-primary" style="background:#475569;" onclick="closeProductModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="customerActivityModal">
+        <div class="modal-box modal-box-wide">
+            <div class="modal-title-row">
+                <h2 id="customerActivityModalTitle">Customer Activity History</h2>
+                <button class="btn-primary btn-sm" type="button" onclick="closeCustomerActivityModal()">Close</button>
+            </div>
+            <div class="table-responsive"><table class="admin-table"><thead><tr><th>Time</th><th>Action</th><th>Page</th><th>Product</th><th>IP Address</th><th>Browser</th><th>Device</th><th>Source</th><th>Details</th></tr></thead><tbody id="customerActivityHistoryBody"><tr><td colspan="9">Loading history...</td></tr></tbody></table></div>
+        </div>
+    </div>
+
+    <!-- ORDER DETAILS MODAL -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-box modal-box-wide">
+            <div class="modal-title-row">
+                <h2 id="orderModalTitle" style="margin-bottom:0;">Order Details</h2>
+                <div class="modal-title-actions">
+                    <button class="btn-primary btn-sm" type="button" id="editOrderBtn" onclick="enableOrderEditMode()">Edit Order</button>
+                    <button class="btn-primary btn-sm" type="button" style="background:#475569;" onclick="closeOrderModal()">Close</button>
+                </div>
+            </div>
+
+            <div id="orderDetailsContent">Loading order info...</div>
+
+            <form id="orderEditForm" hidden>
+                <input type="hidden" id="editOrderId">
+                <div class="order-form-grid">
+                    <div class="form-group">
+                        <label>Customer Name</label>
+                        <input type="text" id="editCustomerName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="editCustomerEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" id="editCustomerPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <input type="text" id="editPaymentMethod" class="form-control" value="Online" readonly required>
+                    </div>
+                    <div class="form-group">
+                        <label>Order Status</label>
+                        <select id="editOrderStatus" class="form-control" required>
+                            <option value="Pending">Pending</option>
+                            <option value="Processing">Processing</option>
+                            <option value="Shipped">Shipped</option>
+                            <option value="Delivered">Delivered</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tracking Number</label>
+                        <input type="text" id="editTrackingNumber" class="form-control" placeholder="Enter tracking number">
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" id="editAddress" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="editCity" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>State</label>
+                        <input type="text" id="editState" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pincode</label>
+                        <input type="text" id="editPincode" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Amount (&#8377;)</label>
+                        <input type="number" id="editTotal" class="form-control" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Special Note</label>
+                        <textarea id="editSpecialNote" class="form-control" rows="3" placeholder="Optional customer note"></textarea>
+                    </div>
+                </div>
+
+                <div class="order-items-section">
+                    <div class="panel-header" style="margin-bottom:0.85rem;">
+                        <h3 style="margin:0;">Ordered Items</h3>
+                        <button class="btn-primary btn-sm" type="button" onclick="addOrderItemRow()">+ Add Item</button>
+                    </div>
+                    <datalist id="orderProductSuggestions"></datalist>
+                    <div id="orderItemsEditor"></div>
+                    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.75rem;">Tip: edit item title, quantity, or price. Total can be recalculated automatically from the items list.</p>
+                </div>
+
+                <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem;">
+                    <button class="btn-primary" type="button" style="background:#475569;" onclick="cancelOrderEdit()">Cancel</button>
+                    <button class="btn-primary" type="submit">Save Changes</button>
+                </div>
+            </form>
+
+            <div id="orderModalEmptyState" hidden></div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
