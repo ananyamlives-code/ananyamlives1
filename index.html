@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Ananyamlives | Premium Traditional Clay Cookware | Made by Hands</title>
+    <meta name="title" content="Ananyamlives | Premium Traditional Clay Cookware | Made by Hands">
+    <meta name="description" content="Bring tradition back to your kitchen with Ananyamlives authentic, handcrafted clay cookware. 100% natural, healthy cooking, and handmade heritage pots.">
+    <meta name="keywords" content="traditional cookware, clay pots, manchatti, clay kadai, handi, terracotta, healthy cooking, handmade cookware, Coimbatore cookware">
+    <meta name="author" content="Ananyamlives">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/manchatti.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- ============ SCROLL PROGRESS BAR ============ -->
+    <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress"></div>
+
+    <!-- ============ ANNOUNCEMENT BAR ============ -->
+    <div class="announcement-bar" role="complementary" aria-label="Announcement">
+        <div class="container announcement-content">
+            <div class="announcement-left">
+                <span>🚚 FREE SHIPPING on orders above ₹3000</span>
+            </div>
+            <div class="announcement-middle">
+                <span>✨ Traditional Cookware, Made the Traditional Way ✨</span>
+            </div>
+            <div class="announcement-right">
+                <a href="#track-order" class="announcement-link" id="trackOrderBtn">Track Order</a>
+                <a href="#login" class="announcement-link" id="loginBtn">Login / Register</a>
+                <div id="userHeaderProfile" style="display:none; align-items:center; gap:0.5rem;">
+                    <span id="headerUserName" style="font-weight:600; color:#ffd700;"></span>
+                    <button class="announcement-link" id="myOrdersBtn" style="background:none; border:none; cursor:pointer; font-weight:600;">My Orders</button>
+                    <button class="announcement-link" id="headerLogoutBtn" style="background:none; border:none; cursor:pointer; color:#ff8080; font-weight:600;">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ HEADER / NAVIGATION ============ -->
+    <header class="header" id="header" role="banner">
+        <div class="container navbar">
+            <!-- Logo -->
+            <a href="#home" class="logo" aria-label="Ananyamlives - Home">
+                <span class="logo-mark">
+                    <img src="main.jpeg" class="logo-image" alt="Ananyamlives logo">
+                </span>
+                <div class="logo-text-group">
+                    <span class="logo-brand">ANANYAMLIVES</span>
+                    <span class="logo-sub">Retrive our Heredity</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav role="navigation" aria-label="Main navigation">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                    <li><a href="#collection" class="nav-link" data-section="collection">Shop</a></li>
+                    <li><a href="#story" class="nav-link" data-section="story">Our Story</a></li>
+                    <li><a href="#values" class="nav-link" data-section="values">Care Guide</a></li>
+                    <li><a href="#footer" class="nav-link" data-section="footer">Contact Us</a></li>
+                    <li><a href="blog.html" class="nav-link" data-section="blog">Blogging</a></li>
+                    <li class="mobile-track-order-item"><a href="#track-order" class="nav-link" id="mobileTrackOrderBtn">Track Order</a></li>
+                    <li class="mobile-my-orders-item"><a href="#my-orders" class="nav-link" id="mobileMyOrdersBtn">My Orders</a></li>
+                </ul>
+            </nav>
+
+            <a href="tel:+919514032880" class="header-phone-link" aria-label="Call +91 951 403 2880">+91 951 403 2880</a>
+
+            <!-- Action Buttons -->
+            <div class="nav-actions">
+                <!-- Search Button and Dropdown -->
+                <button class="action-btn" id="searchBtn" aria-label="Search website" aria-expanded="false" aria-controls="searchForm">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <form class="header-search" id="searchForm" role="search" hidden>
+                    <label class="sr-only" for="searchInput">Search cookware</label>
+                    <div class="search-input-group">
+                        <input type="search" class="search-input" id="searchInput" placeholder="Search cookware..." autocomplete="off" aria-label="Search cookware">
+                        <button type="submit" class="search-btn" aria-label="Submit search">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="search-results-simulated" id="searchResults" aria-live="polite"></div>
+                </form>
+                <!-- Wishlist Button -->
+                <button class="action-btn" id="wishlistHeaderBtn" aria-label="View wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="badge-count" id="wishlistCount" style="display: none;">0</span>
+                </button>
+                <!-- Cart Button -->
+                <button class="action-btn" id="cartBtn" aria-label="Open shopping cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="badge-count" id="cartCount">0</span>
+                </button>
+            </div>
+
+            <!-- Hamburger for Mobile -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main role="main" id="home">
+
+        <!-- ============ HERO SECTION ============ -->
+        <section class="hero" aria-label="Heritage Banner">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-subtitle-tamil tamil-text">DON'T JUST FEED YOUR FAMILY PROTECT THEIR HEALTH WITH ANANYAM COOKWARE BUILT TO LIFETIME.
+                        
+                    </h1>
+                    <h2 class="hero-title-tamil tamil-text"></h2>
+                    <p class="hero-desc">
+                        Bring Tradition Back to Your Kitchen made by hands,Inspired by generations. Cook healthy and feel connected with authentic heritage Cookware.
+                    </p>
+                    <a href="#collection" class="btn btn-primary" id="heroCta">
+                        <span>Explore Ananyamlives</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ BEST SELLERS ============ -->
+        <section class="section" id="collection" aria-label="Best selling clay products">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <svg class="section-ornament" viewBox="0 0 24 24">
+                            <path d="M12 2L9 9H15L12 2Z M9 10L2 14L9 18V10Z M15 10L22 14L15 18V10Z M12 22L15 15H9L12 22Z" />
+                        </svg>
+                        <h2 class="section-title">Our Collection </h2>
+                        <svg class="section-ornament" viewBox="0 0 24 24">
+                            <path d="M12 2L9 9H15L12 2Z M9 10L2 14L9 18V10Z M15 10L22 14L15 18V10Z M12 22L15 15H9L12 22Z" />
+                        </svg>
+                    </div>
+                    <p class="section-subtitle">Our top customer-rated pots, loved for their durability and authentic cooking characteristics.</p>
+                </div>
+
+                <!-- Product Grid — grid on desktop, swipeable horizontal carousel on mobile -->
+                <div class="products-carousel-wrap" id="productsCarouselWrap">
+                <button type="button" class="products-carousel-arrow left" id="productsCarouselPrev" aria-label="Scroll to previous products">&#10094;</button>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-category="manchatti">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                        <div class="product-image-wrapper">
+                            <img src="images/clay rice pot.png" alt="Manchatti Medium" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Clay Rice Pot</h3>
+                            <span class="product-price" data-price="1099" data-compare-at-price="1290">₹890</span>
+                            <div class="product-btn-group">
+                                <button class="btn btn-add-cart" data-id="p1" data-title="Manchatti (Medium)" data-price="1099" data-compare-at-price="1299">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                    </svg>
+                                    <span>Add To Cart</span>
+                                </button>
+                                <button class="btn btn-order-now" data-id="p1" data-title="Manchatti (Medium)" data-price="1099" data-compare-at-price="1299">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                    </svg>
+                                    <span>Order Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card" data-category="kadai">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                        <div class="product-image-wrapper">
+                            <img src="images/clay kadai.jpeg" alt="Clay Kadai 12 inch" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Clay Kadai Red</h3>
+                            <span class="product-price" data-price="1299" data-compare-at-price="1499">₹1,299</span>
+                            <div class="product-btn-group">
+                                <button class="btn btn-add-cart" data-id="p2" data-title="Clay Kadai (12 inch)" data-price="1299" data-compare-at-price="1499">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                    </svg>
+                                    <span>Add To Cart</span>
+                                </button>
+                                <button class="btn btn-order-now" data-id="p2" data-title="Clay Kadai (12 inch)" data-price="1299" data-compare-at-price="1499">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                    </svg>
+                                    <span>Order Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card" data-category="handi">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                        <div class="product-image-wrapper">
+                            <img src="images/clay curd jar.jpeg" alt="Handi Pot 2 Litre" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Clay Curd jar with lid</h3>
+                            <span class="product-price" data-price="899" data-compare-at-price="1099">₹899</span>
+                            <div class="product-btn-group">
+                                <button class="btn btn-add-cart" data-id="p3" data-title="Handi Pot (2 Litre)" data-price="899" data-compare-at-price="1099">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                    </svg>
+                                    <span>Add To Cart</span>
+                                </button>
+                                <button class="btn btn-order-now" data-id="p3" data-title="Handi Pot (2 Litre)" data-price="899" data-compare-at-price="1099">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                    </svg>
+                                    <span>Order Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card" data-category="serving">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                        <div class="product-image-wrapper">
+                            <img src="images/clay tumpler.png" alt="Serving Bowl Set" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Clay Tumbler</h3>
+                            <span class="product-price" data-price="699" data-compare-at-price="799">₹699</span>
+                            <div class="product-btn-group">
+                                <button class="btn btn-add-cart" data-id="p4" data-title="Serving Bowl Set (Set of 3)" data-price="699" data-compare-at-price="799">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                    </svg>
+                                    <span>Add To Cart</span>
+                                </button>
+                                <button class="btn btn-order-now" data-id="p4" data-title="Serving Bowl Set (Set of 3)" data-price="699" data-compare-at-price="799">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                    </svg>
+                                    <span>Order Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card" data-category="waterpot">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                        <div class="product-image-wrapper">
+                            <img src="images/clay curry pot black.jpeg" alt="Water Pot 20 Litre" class="product-image" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Clay Curry pot Black</h3>
+                            <span class="product-price" data-price="1499" data-compare-at-price="1699">₹1,499</span>
+                            <div class="product-btn-group">
+                                <button class="btn btn-add-cart" data-id="p5" data-title="Water Pot (20 Litre)" data-price="1499" data-compare-at-price="1699">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                    </svg>
+                                    <span>Add To Cart</span>
+                                </button>
+                                <button class="btn btn-order-now" data-id="p5" data-title="Water Pot (20 Litre)" data-price="1499" data-compare-at-price="1699">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                    </svg>
+                                    <span>Order Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="products-carousel-arrow right" id="productsCarouselNext" aria-label="Scroll to next products">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section info-section" id="story" aria-labelledby="storyTitle">
+            <div class="container info-section-content story-editorial">
+                <p class="info-section-kicker">Our Story</p>
+                <h2 class="section-title" id="storyTitle">Made With Tradition, For Everyday Health</h2>
+
+                <p class="story-intro">In a world of fast-moving convenience, Teflon coatings, and chemical non-sticks, we lost something deeply precious&mdash;the slow, mineral-rich, pure taste of traditional Indian cooking. Ananyamlives was born out of a simple desire: to bring back the authentic health benefits and unmatched flavors of traditional cookware to modern homes.</p>
+
+                <div class="story-cards-grid">
+                    <article class="story-card reveal-card">
+                        <span class="story-card-number">01</span>
+                        <h3>The Meaning Behind the Name</h3>
+                        <p>Ananyam means &ldquo;Unrivaled, Unique, and Peerless.&rdquo; To us, it represents cookware that is unmatched in quality, crafted without compromise, and built to be passed down through generations.</p>
+                    </article>
+
+                    <article class="story-card reveal-card">
+                        <span class="story-card-number">02</span>
+                        <h3>Empowering Native Artisans</h3>
+                        <p>Every piece of cookware at Ananyam isn't factory-made on an assembly line. It is individually hand-carved, hammered, and shaped by rural Indian artisans, keeping traditional craftsmanship alive.</p>
+                    </article>
+
+                    <article class="story-card reveal-card">
+                        <span class="story-card-number">03</span>
+                        <h3>Pure, Chemical-Free Living</h3>
+                        <p>We believe cooking should nourish you, not introduce unwanted chemicals into your food. Our products are natural, food-safe, and rich in natural micro-minerals.</p>
+                    </article>
+
+                    <article class="story-card reveal-card">
+                        <span class="story-card-number">04</span>
+                        <h3>Our Purpose</h3>
+                        <p>When you buy from Ananyamlives, you don't just buy a utensil. You bring home a piece of art, a legacy of good health, and a story of skilled hands that made it with love.</p>
+                    </article>
+                </div>
+
+                <div class="story-closing-wrap reveal-card">
+                    <p class="story-closing">&ldquo;When you buy from Ananyamlives,<br>you bring home more than cookware.&rdquo;</p>
+                    <p class="story-closing-subtext">A piece of art. A legacy of good health. A story of skilled hands.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section info-section" id="values" aria-labelledby="careGuideTitle">
+            <div class="container info-section-content">
+                <p class="info-section-kicker">Care Guide</p>
+                <h2 class="section-title" id="careGuideTitle">Care For Your Clay Cookware</h2>
+                <p>Soak new clay cookware before its first use, warm it gradually on a low flame, and wash it with water and a soft scrubber. Let it dry fully before storing.</p>
+            </div>
+        </section>
+
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer" id="footer" role="contentinfo">
+        <div class="container footer-grid">
+            <!-- Column 1: Info -->
+            <div class="footer-column">
+                <img src="main.jpeg" class="footer-logo-image" alt="Ananyamlives logo">
+                <h3 class="footer-col-title">ANANYAMLIVES</h3>
+                <p class="footer-about-text">
+                    Bringing tradition back to your kitchen with authentic, handcrafted clay cookware made with pure, chemical-free raw materials. Inspired by ancient Tamil culture.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61593608904566" class="social-btn social-facebook" aria-label="Visit Ananyamlives on Facebook" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.76 0-5 2.24-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.55.45-1 1-1Z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/ananyamlives" class="social-btn social-instagram" aria-label="Visit Ananyamlives on Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="social-icon-dot"/></svg>
+                    </a>
+                    <a href="https://wa.me/919514032880" class="social-btn social-whatsapp" aria-label="Chat with Ananyamlives on WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.08 0C5.55 0 .23 5.31.23 11.85c0 2.09.55 4.13 1.59 5.93L.13 24l6.37-1.67a11.84 11.84 0 0 0 5.58 1.42h.01c6.53 0 11.85-5.31 11.85-11.85 0-3.17-1.23-6.15-3.44-8.4ZM12.09 21.7h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.78.99 1.01-3.68-.23-.38a9.83 9.83 0 0 1-1.5-5.2C2.21 6.42 6.64 2 12.09 2a9.8 9.8 0 0 1 6.96 2.89 9.86 9.86 0 0 1 2.9 7.01c0 5.42-4.42 9.8-9.86 9.8Z"/><path d="M17.54 14.72c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.42.25-.69.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@Ananyam_lives" class="social-btn social-youtube" aria-label="Visit Ananyamlives on YouTube" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column">
+                <h3 class="footer-col-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home" class="footer-link">Home</a></li>
+                    <li><a href="#collection" class="footer-link">Shop Collection</a></li>
+                    <li><a href="#story" class="footer-link">Our Story</a></li>
+                    <li><a href="#values" class="footer-link">Care Guide</a></li>
+                    <li><a href="#footer" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Customer Service -->
+            <div class="footer-column">
+                <h3 class="footer-col-title">Customer Service</h3>
+                <ul class="footer-links">
+                    <li><a href="#track" class="footer-link policy-link" data-policy="track" aria-haspopup="dialog">Track Order</a></li>
+                    <li><a href="#shipping" class="footer-link policy-link" data-policy="shipping" aria-haspopup="dialog">Shipping &amp; Delivery</a></li>
+                    <li><a href="#returns" class="footer-link policy-link" data-policy="returns" aria-haspopup="dialog">Returns &amp; Refunds</a></li>
+                    <li><a href="#faq" class="footer-link policy-link" data-policy="faq" aria-haspopup="dialog">FAQ</a></li>
+                    <li><a href="#terms" class="footer-link policy-link" data-policy="terms" aria-haspopup="dialog">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact Us -->
+            <div class="footer-column">
+                <h3 class="footer-col-title">Contact Us</h3>
+                <ul class="contact-info-list">
+                    <li class="contact-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <a href="tel:+919514032880" style="color:inherit;text-decoration:none;">+91 951 403 2880</a>
+                    </li>
+                    <li class="contact-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:reach.ananyamlives@gmail.com" style="color:inherit;text-decoration:none;">reach.ananyamlives@gmail.com</a>
+                    </li>
+                    <li class="contact-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Chennai, Tamil Nadu, India</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Newsletter -->
+            <div class="footer-column">
+                <h3 class="footer-col-title">Newsletter</h3>
+                <p class="newsletter-text">Subscribe to get updates on new collections and exclusive heritage cooking guides.</p>
+                <form class="newsletter-form" id="newsletterForm" novalidate>
+                    <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="Enter your email" required aria-label="Email Address">
+                    <button type="submit" class="newsletter-submit" aria-label="Subscribe">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-bottom-text">© 2026 Ananyamlives. All Rights Reserved.</p>
+            <!-- Custom heritage divider SVG symbol -->
+            <svg class="footer-bottom-symbol" viewBox="0 0 100 20">
+                <path d="M10 10 L40 10 Q45 10 50 5 Q55 10 60 10 L90 10 M50 5 Q50 0 50 15 Z" fill="none" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+        </div>
+    </footer>
+
+    <div class="terms-overlay" id="termsOverlay"></div>
+    <section class="terms-modal" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle" aria-hidden="true">
+        <div class="terms-modal-header">
+            <div>
+                <p class="terms-eyebrow">Ananyamlives</p>
+                <h2 id="termsTitle">Terms &amp; Conditions</h2>
+            </div>
+            <button class="terms-close" id="termsClose" type="button" aria-label="Close terms and conditions">&times;</button>
+        </div>
+        <div class="terms-modal-body">
+            <section class="terms-group" data-policy-section="track">
+                <p>You’ll get order tracking details through WhatsApp and Email.</p>
+            </section>
+            <section class="terms-group" data-policy-section="shipping">
+                <h4>Dispatch Timelines</h4>
+                <p><strong>Standard Cookware:</strong> Dispatched within 24 to 48 hours.</p>
+                <p><strong>Pre-Seasoned Cookware:</strong> Dispatched within 3 to 4 business days to allow complete natural oil curing before shipping.</p>
+                <h4>Estimated Delivery Times</h4>
+                <p>South India: 2 to 4 business days. Rest of India: 4 to 7 business days.</p>
+            </section>
+            <section class="terms-group" data-policy-section="returns">
+                <h4>100% Transit Damage Guarantee</h4>
+                <p>If your stone or clay cookware arrives damaged, we offer an immediate 100% free replacement.</p>
+                <h4>3-Step Claim Process</h4>
+                <ol>
+                    <li>Record a quick unboxing video or capture clear photos of the damaged product within 48 hours of delivery.</li>
+                    <li>Share the photos or video along with your Order ID via WhatsApp.</li>
+                    <li>Our care team will dispatch a fresh replacement unit at no extra cost.</li>
+                </ol>
+                <p>Unused and unseasoned products in their original condition and packaging can be returned from customer side within 3 days of delivery.</p>
+                <p>Refunds are processed to your original payment method or UPI account within 3 to 5 business days after quality verification.</p>
+            </section>
+            <section class="terms-group" data-policy-section="faq">
+                <h3>4. Frequently Asked Questions (FAQ)</h3>
+                <h4>Are products from Ananyamlives pre-seasoned?</h4>
+                <p>We offer both raw and pre-seasoned options. You can select “Pre-Seasoned” on the product page for cookware that is ready to use immediately upon arrival.</p>
+                <h4>Can traditional cookware be used on modern gas stoves?</h4>
+                <p>Yes, all our products are fully tested and compatible with standard domestic gas burners.</p>
+                <h4>Are your products free from harmful chemicals?</h4>
+                <p>Absolutely. All Ananyamlives products are 100% natural, non-toxic, and chemical-coating free.</p>
+            </section>
+            <section class="terms-group" data-policy-section="terms">
+                <h3>5. Terms &amp; Conditions</h3>
+                <h4>Handcrafted Authenticity</h4>
+                <p>Every item is individually crafted by traditional Indian artisans. Minor natural variations in color, shade, pattern, or weight are inherent characteristics of handmade cookware and do not constitute defects.</p>
+                <h4>Care &amp; Maintenance Responsibility</h4>
+                <p>Customers are requested to follow the official Care Guide provided on our site.</p>
+                <h4>Pricing &amp; Availability</h4>
+                <p>All prices listed on Ananyamlives are in Indian Rupees (INR) and inclusive of government tax. We reserve the right to revise product pricing or cancel orders due to stock unavailability or system errors.</p>
+                <h4>Intellectual Property</h4>
+                <p>All media, images, graphics, logos, and written content on this website are the property of Ananyamlives and protected by applicable copyright laws.</p>
+            </section>
+        </div>
+    </section>
+
+    <!-- ============ AUTHENTICATION MODAL (LOGIN & EMAIL OTP REGISTER) ============ -->
+    <div class="modal-overlay" id="authModal" style="display:none;">
+        <div class="auth-modal-box">
+            <button class="auth-modal-close" id="authModalClose">&times;</button>
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" id="tabLoginBtn">🔑 Login</button>
+                <button class="auth-tab-btn" id="tabRegisterBtn">📝 Create Account</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <h3 style="margin-bottom:0.5rem; color:#3b1c09;">Welcome Back</h3>
+                <p style="font-size:0.85rem; color:#666; margin-bottom:1.25rem;">Sign in to your Ananyamlives account.</p>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="loginEmail" class="form-control" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="password-field">
+                        <input type="password" id="loginPassword" class="form-control" required placeholder="••••••••">
+                        <button type="button" class="password-toggle" data-password-target="loginPassword" aria-label="Show password" aria-pressed="false">&#128065;</button>
+                    </div>
+                </div>
+                <button type="submit" class="btn-auth-submit">Login to Account</button>
+                <p style="margin-top:1rem; font-size:0.85rem; text-align:center; color:#666;">
+                    Don't have an account? <a href="#" id="switchToRegister" style="color:#8b4513; font-weight:600;">Create account here</a>
+                </p>
+            </form>
+
+            <!-- Register Form with Mandatory Email OTP Verification -->
+            <div id="registerForm" class="auth-form" style="display:none;">
+                
+                <!-- Step 1: Account Info -->
+                <form id="regStep1Form">
+                    <h3 style="margin-bottom:0.5rem; color:#3b1c09;">Create Account</h3>
+                    <p style="font-size:0.85rem; color:#666; margin-bottom:1.25rem;">Mandatory 6-digit OTP will be sent to your email.</p>
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="regName" class="form-control" required placeholder="e.g. Ramesh Kumar">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="regEmail" class="form-control" required placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password *</label>
+                        <div class="password-field">
+                            <input type="password" id="regPassword" class="form-control" required placeholder="••••••••">
+                            <button type="button" class="password-toggle" data-password-target="regPassword" aria-label="Show password" aria-pressed="false">&#128065;</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Phone Number</label>
+                        <input type="tel" id="regPhone" class="form-control" placeholder="+91 98765 43210">
+                    </div>
+                    <button type="submit" id="requestEmailOtpBtn" class="btn-auth-submit">Create Account & Send Email OTP</button>
+                    <p style="margin-top:1rem; font-size:0.85rem; text-align:center; color:#666;">
+                        Already have an account? <a href="#" id="switchToLogin" style="color:#8b4513; font-weight:600;">Login here</a>
+                    </p>
+                </form>
+
+                <!-- Step 2: Email OTP Verification View -->
+                <div id="regStep2View" style="display:none;">
+                    <h3 style="margin-bottom:0.5rem; color:#3b1c09;">Verify Your Email</h3>
+                    <p style="font-size:0.85rem; color:#666; margin-bottom:1.25rem;">
+                        We've sent a 6-digit verification code to <strong id="verifyTargetEmail" style="color:#3b1c09;"></strong>.
+                    </p>
+                    <form id="verifyEmailOtpForm">
+                        <div class="form-group">
+                            <label>Enter 6-Digit Email Verification Code</label>
+                            <input type="text" id="emailOtpInput" class="form-control" style="font-size:1.3rem; letter-spacing:6px; text-align:center; font-weight:700;" placeholder="••••••" maxlength="6" required>
+                            <div style="font-size:0.8rem; color:#666; margin-top:0.5rem; text-align:center;" id="emailOtpTimerText">OTP expires in 5 minutes</div>
+                        </div>
+                        <button type="submit" id="verifyEmailOtpBtn" class="btn-auth-submit">Verify OTP & Complete Registration</button>
+                        <div style="text-align:center; margin-top:1rem; display:flex; justify-content:space-between; align-items:center;">
+                            <a href="#" id="backToRegDetails" style="font-size:0.85rem; color:#666;">← Back to details</a>
+                            <button type="button" id="resendEmailOtpBtn" style="background:none; border:none; color:#8b4513; font-weight:600; cursor:pointer; font-size:0.85rem;">Resend OTP</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ USER ORDERS & TRACKING MODAL ============ -->
+    <div class="modal-overlay" id="userOrdersModal" style="display:none;">
+        <div class="auth-modal-box" style="max-width:650px;">
+            <button class="auth-modal-close" id="userOrdersClose">&times;</button>
+            <h3 style="color:#3b1c09; margin-bottom:0.5rem;">My Orders & Track Status</h3>
+            <p style="font-size:0.85rem; color:#666; margin-bottom:1rem;">Track your traditional clay cookware orders live.</p>
+            
+            <div style="display:flex; gap:0.5rem; margin-bottom:1.5rem;">
+                <input type="text" id="trackInputId" class="form-control" placeholder="Enter Order ID (e.g. ORD-12345)">
+                <button id="trackLookupBtn" class="btn-auth-submit" style="width:auto; padding:0 1.25rem;">Track</button>
+            </div>
+
+            <div id="userOrdersList">Loading your orders...</div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/site-content.js"></script>
+</body>
+</html>

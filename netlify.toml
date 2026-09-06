@@ -1,0 +1,28 @@
+# Netlify Configuration for Ananyamlives E-Commerce Frontend
+
+[build]
+  publish = "."
+
+# Static Asset Caching
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Optional API proxy rule: redirect /api/* requests to your production Express backend on Render/Railway
+# Replace YOUR-RENDER-APP-NAME with your deployed backend application name on Render
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://YOUR-RENDER-APP-NAME.onrender.com/api/:splat"
+#   status = 200
+#   force = true
